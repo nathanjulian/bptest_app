@@ -1,8 +1,77 @@
 import 'package:flutter/material.dart';
+import 'package:bptest_app/constants.dart';
+import 'package:bptest_app/components/page_button.dart';
 
-class NewReviewScreen extends StatelessWidget {
+class NewReviewScreen extends StatefulWidget {
+  @override
+  _NewReviewScreenState createState() => _NewReviewScreenState();
+}
+
+class _NewReviewScreenState extends State<NewReviewScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ListTile(
+              title: Text('PRODUCTS'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, 'Products');
+              },
+            ),
+            ListTile(
+              title: Text('CHAT'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, 'Chat');
+              },
+            )
+          ],
+        ),
+      ),
+      appBar: AppBar(
+        title: Text('Butterflies & Petals'),
+        backgroundColor: kSecondaryColor,
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            Text('REVIEWS'),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                  color: kSecondaryColor,
+                  border: Border.all(color: Colors.black)
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('MrPeePee'),
+                  Text('Floaroma'),
+                  Text('Rating: 5/5'),
+                  Text('blah blah blah'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(icon: Icon(Icons.thumb_up), onPressed: (){}),
+                      Text('6'),
+                      IconButton(icon: Icon(Icons.thumb_down), onPressed: (){}),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            PageButton(
+              press: () {},
+              text: 'SUBMIT',
+            ),
+          ],
+        ),
+      ),
+    );
+
   }
 }
