@@ -15,10 +15,28 @@ class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ListTile(
+              title: Text('PRODUCTS'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, 'Products');
+              },
+            ),
+            ListTile(
+              title: Text('CHAT'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, 'Chat');
+              },
+            )
+          ],
+        ),
+      ),
       appBar:  AppBar(
-        leading: IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () {}),
         title: Text('Butterflies & Petals'),
         backgroundColor: kSecondaryColor,
       ),
