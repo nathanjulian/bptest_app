@@ -7,7 +7,7 @@ const kTextColor = Color(0xFF000000);
 const kAdminBorderColor = Color(0x80CE9DD9);
 
 const kCollectionCardTextStyle = TextStyle(
-    fontSize: 30.0,
+    fontSize: 20.0,
     fontWeight: FontWeight.bold);
 
 const kPageButtonTextStyle =  TextStyle(
