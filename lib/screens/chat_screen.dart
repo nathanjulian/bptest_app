@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 
-class ChatScreen extends StatelessWidget {
+class ChatScreen extends StatefulWidget {
+  @override
+  _ChatScreenState createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +34,28 @@ class ChatScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Butterflies & Petals'),
         backgroundColor: kSecondaryColor,
+      ),
+      body: Container(
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 320.0,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'type message here',
+                    ),
+                  ),
+                ),
+                IconButton(icon: Icon(Icons.send), onPressed: (){}),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

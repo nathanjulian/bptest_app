@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         'Product' : (context) => ProductScreen(),
         'Reviews' : (context) => ReviewScreen(),
         'New Review' : (context) => NewReviewScreen(),
-        'Chat' :(context) => ChatScreen(),
+        'Chat' : (context) => ChatScreen(),
       },
     );
   }
