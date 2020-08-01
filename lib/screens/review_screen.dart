@@ -37,10 +37,18 @@ class _ReviewScreenState extends State<ReviewScreen> {
         backgroundColor: kSecondaryColor,
       ),
       body: Container(
+        padding: EdgeInsets.symmetric(vertical: 20.0),
         child: Column(
           children: [
-            Text('REVIEWS'),
-            PageButton(press: () {Navigator.pushNamed(context, 'New Review');}, text: 'ADD REVIEW'),
+            Text('REVIEWS', style: kPageHeadingStyle,),
+            SizedBox(height: 20.0,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                PageButton(press: () {Navigator.pushNamed(context, 'New Review');}, text: 'ADD REVIEW'),
+              ],
+            ),
+            SizedBox(height: 10.0,),
             Container(
               padding: EdgeInsets.all(10.0),
               decoration: BoxDecoration(
