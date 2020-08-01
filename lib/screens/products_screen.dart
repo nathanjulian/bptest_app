@@ -33,29 +33,28 @@ class ProductsScreen extends StatelessWidget {
         title: Text('Butterflies & Petals'),
         backgroundColor: kSecondaryColor,
       ),
-      body: Center(
-        child: Container(
-            margin: EdgeInsets.symmetric(vertical: 70.0, horizontal: 30.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ProductCard(
-                    press: () {
-                      Navigator.pushNamed(context, 'Product');
-                    },
-                    productName: 'Floaroma',
-                    image: 'assets/images/bouquet.jpg',
-                    price: 69.69),
-                ProductCard(
-                    press: () {
-                      Navigator.pushNamed(context, 'Product');
-                    },
-                    productName: 'Eterna',
-                    image: 'assets/images/bouquet.jpg',
-                    price: 69.69),
-              ],
-            ),
-        ),
+      body: Container(
+          margin: EdgeInsets.symmetric(vertical: 70.0, horizontal: 30.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ProductCard(
+                  press: () {
+                    Navigator.pushNamed(context, 'Product');
+                  },
+                  productName: 'Floaroma',
+                  image: 'assets/images/bouquet.jpg',
+                  price: 69.69),
+              ProductCard(
+                  press: () {
+                    Navigator.pushNamed(context, 'Product');
+                  },
+                  productName: 'Eterna',
+                  image: 'assets/images/bouquet.jpg',
+                  price: 69.69),
+            ],
+          ),
       ),
     );
   }

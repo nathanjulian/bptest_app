@@ -17,11 +17,11 @@ const kPageButtonTextStyle =  TextStyle(
 );
 
 const kPageHeadingStyle =  TextStyle(
-  fontSize: 50.0,
+  fontSize: 35.0,
   fontWeight: FontWeight.bold,
 );
 
 const kProductPriceStyle =  TextStyle(
-  fontSize: 50.0,
+  fontSize: 22.0,
   fontWeight: FontWeight.w500,
 );

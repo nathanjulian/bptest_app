@@ -9,7 +9,6 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
-
   int count = 1;
 
   @override
@@ -36,18 +35,28 @@ class _ProductScreenState extends State<ProductScreen> {
           ],
         ),
       ),
-      appBar:  AppBar(
+      appBar: AppBar(
         title: Text('Butterflies & Petals'),
         backgroundColor: kSecondaryColor,
       ),
-      body: Center(
+      body: Container(
         child: Column(
           children: [
             Image.asset('assets/images/bouquet.jpg'),
-            Text('FlOAROMA'),
-            Text('\$ 69.69'),
-            Text('This is a flower bouquet lololol'),
+            Text(
+              'FLOAROMA',
+              style: kPageHeadingStyle,
+            ),
+            SizedBox(height: 10.0,),
+            Text(
+              '\$ 69.69',
+              style: kPageHeadingStyle,
+            ),
+            SizedBox(height: 10.0,),
+            Text('This is a flower bouquet lololol', style: kProductPriceStyle,),
+            SizedBox(height: 10.0,),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'Quantity',
@@ -90,10 +99,12 @@ class _ProductScreenState extends State<ProductScreen> {
                 ),
               ],
             ),
+            SizedBox(height: 30.0,),
             PageButton(
               press: () {},
               text: 'ADD TO CART',
             ),
+            SizedBox(height: 20.0,),
             PageButton(
               press: () {
                 Navigator.pushNamed(context, 'Reviews');
