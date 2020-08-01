@@ -37,9 +37,11 @@ class _NewReviewScreenState extends State<NewReviewScreen> {
         backgroundColor: kSecondaryColor,
       ),
       body: Container(
+        padding: EdgeInsets.symmetric(vertical: 20.0),
         child: Column(
+
           children: [
-            Text('REVIEWS'),
+            Text('REVIEWS', style: kPageHeadingStyle,),
             Container(
               padding: EdgeInsets.all(10.0),
               decoration: BoxDecoration(
@@ -56,9 +58,7 @@ class _NewReviewScreenState extends State<NewReviewScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      IconButton(icon: Icon(Icons.thumb_up), onPressed: (){}),
-                      Text('6'),
-                      IconButton(icon: Icon(Icons.thumb_down), onPressed: (){}),
+                      IconButton(icon: Icon(Icons.add_photo_alternate), onPressed: (){}),
                     ],
                   ),
                 ],
