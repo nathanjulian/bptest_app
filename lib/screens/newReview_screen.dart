@@ -51,13 +51,13 @@ class _NewReviewScreenState extends State<NewReviewScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('MrPeePee'),
-                  Text('Floaroma'),
-                  Text('Rating: 5/5'),
-                  Text('blah blah blah'),
+                  Text('Product under review: '),
+                  Text('Rating out of 5: '),
+                  Text('Additional comments:'),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      Text('Upload image'),
                       IconButton(icon: Icon(Icons.add_photo_alternate), onPressed: (){}),
                     ],
                   ),
