@@ -13,6 +13,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String username = '';
   String password = '';
   String confirmPassword = '';
+  String error = '';
 
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
@@ -38,6 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                validator: (val) => val.isEmpty ? 'Username already taken' : null ,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Username',
@@ -73,10 +75,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(height: 50.0),
               PageButton(
                 text: 'CREATE ACCOUNT',
-                press: () {
-                  if(_formKey.currentState.validate()) {
-                    print(email);
-                    print(password);
+                press: () async {
+                  if(_formKey.currentState.validate())  {
+                    dynamic result = await _auth.registerAccount(email, password);
+                    if(result == null) {
+                      setState(() {
+                        error = 'Please enter a valid e-mail address';
+                        showDialog(
+                            context: context,
+                          barrierDismissible: true,
+                          builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('Error'),
+                                content: Text(error),
+                                actions: [
+                                  FlatButton(
+                                    child: Text('OK'),
+                                    onPressed: () {Navigator.of(context).pop();},
+                                  )
+                                ],
+                              );
+                          }
+                        );
+                      });
+                    }
                   }
                 },
               ),
