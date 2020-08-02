@@ -12,6 +12,13 @@ class SignUpScreen extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
+                labelText: 'E-mail',
+              ),
+            ),
+            SizedBox(height: 20.0),
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
                 labelText: 'Username',
               ),
             ),

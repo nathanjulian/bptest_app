@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Username',
+                labelText: 'Username or E-mail',
               ),
             ),
             SizedBox(height: 20.0),
