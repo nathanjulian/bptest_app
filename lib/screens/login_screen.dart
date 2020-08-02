@@ -40,7 +40,6 @@ class _LoginScreenState extends State<LoginScreen> {
               press: () async {
                 dynamic result = await _auth.logIn();
                 result == null ? print('login error') : print('logged in, ' + result.toString());
-                //Navigator.pushNamed(context, 'Products');
               },
             ),
             SizedBox(height: 20.0),

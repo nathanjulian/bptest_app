@@ -1,3 +1,4 @@
+import 'package:bptest_app/firebase/auth_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 
@@ -7,6 +8,8 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,17 +25,17 @@ class _ChatScreenState extends State<ChatScreen> {
               },
             ),
             ListTile(
-    title: Text('CHAT'),
-    onTap: () {
-    Navigator.pop(context);
-    Navigator.pushNamed(context, 'Chat');
+              title: Text('CHAT'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, 'Chat');
               },
             ),
             ListTile(
               title: Text('LOG OUT'),
-              onTap: () {
+              onTap: () async {
+                await _auth.logOut();
                 Navigator.pop(context);
-                Navigator.pushNamed(context, 'Login');
               },
             ),
           ],
@@ -58,7 +61,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     ),
                   ),
                 ),
-                IconButton(icon: Icon(Icons.send), onPressed: (){}),
+                IconButton(icon: Icon(Icons.send), onPressed: () {}),
               ],
             )
           ],

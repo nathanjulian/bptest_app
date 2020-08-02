@@ -1,3 +1,4 @@
+import 'package:bptest_app/firebase/auth_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 import 'package:bptest_app/components/page_button.dart';
@@ -8,6 +9,9 @@ class ReviewScreen extends StatefulWidget {
 }
 
 class _ReviewScreenState extends State<ReviewScreen> {
+
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +35,9 @@ class _ReviewScreenState extends State<ReviewScreen> {
             ),
             ListTile(
               title: Text('LOG OUT'),
-              onTap: () {
+              onTap: () async {
+                await _auth.logOut();
                 Navigator.pop(context);
-                Navigator.pushNamed(context, 'Login');
               },
             ),
           ],
