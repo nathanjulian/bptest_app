@@ -18,7 +18,7 @@ class AuthService {
   }
 
   //function to log in with username
-  Future logIn() async {
+  Future logInAnon() async {
     try{
       AuthResult result = await _auth.signInAnonymously();
       FirebaseUser user = result.user;
@@ -26,6 +26,18 @@ class AuthService {
     }catch(e) {
       print(e.toString());
       return null;
+    }
+  }
+
+  //log in with email
+  Future logIn(String email, String password) async {
+    try {
+      AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      FirebaseUser user = result.user;
+      return _userFromFirebaseUser(user);
+    } catch(e) {
+      print(e.toString());
+      return e.toString();
     }
   }
 
