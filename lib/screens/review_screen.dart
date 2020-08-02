@@ -28,7 +28,14 @@ class _ReviewScreenState extends State<ReviewScreen> {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, 'Chat');
               },
-            )
+            ),
+            ListTile(
+              title: Text('LOG OUT'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, 'Login');
+              },
+            ),
           ],
         ),
       ),

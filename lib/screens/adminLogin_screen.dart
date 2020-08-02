@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:bptest_app/components/page_button.dart';
 
-class AdminLogin extends StatelessWidget {
+
+class AdminLogin extends StatefulWidget {
+  @override
+  _AdminLoginState createState() => _AdminLoginState();
+}
+
+class _AdminLoginState extends State<AdminLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
