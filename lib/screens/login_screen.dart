@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 70.0, horizontal: 30.0),
         child: Form(
-          child: Column(
+          child: ListView(
             children: [
               TextFormField(
                 decoration: InputDecoration(
