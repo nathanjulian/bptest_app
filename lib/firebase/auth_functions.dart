@@ -3,11 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
 
+  //create instance object
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  //create instance object to use FirebaseAuth methods
 
 
-  //create user obj based on user id
+  //create user obj
   User _userFromFirebaseUser(FirebaseUser user) {
     return user !=null ? User(userID: user.uid) : null;
   }
@@ -33,6 +33,18 @@ class AuthService {
   Future logOut() async {
     try{
       return await _auth.signOut();
+    } catch(e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  //register account
+  Future registerAccount(String email, String password) async {
+    try {
+      AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      FirebaseUser user = result.user;
+      return _userFromFirebaseUser(user);
     } catch(e) {
       print(e.toString());
       return null;
