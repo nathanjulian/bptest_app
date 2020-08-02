@@ -15,6 +15,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String confirmPassword = '';
 
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +23,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 70.0, horizontal: 30.0),
         child: Form(
-          child: Column(
+          key: _formKey,
+          child: ListView(
             children: [
               TextFormField(
+                validator: (val) => val.isEmpty ? 'Invalid e-mail address' : null ,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'E-mail',
@@ -45,6 +48,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                validator: (val) => val.length < 6 ? 'Password needs to have at least 6 characters' : null ,
                 obscureText: true,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -56,6 +60,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                validator: (val) => val != password ? 'Passwords do not match' : null ,
                 obscureText: true,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -68,7 +73,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(height: 50.0),
               PageButton(
                 text: 'CREATE ACCOUNT',
-                press: () {},
+                press: () {
+                  if(_formKey.currentState.validate()) {
+                    print(email);
+                    print(password);
+                  }
+                },
               ),
             ],
           ),
