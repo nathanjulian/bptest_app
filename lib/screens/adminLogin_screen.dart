@@ -10,6 +10,9 @@ class AdminLogin extends StatefulWidget {
 class _AdminLoginState extends State<AdminLogin> {
   final AuthService _auth = AuthService();
 
+  String userEmail = '';
+  String password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +39,7 @@ class _AdminLoginState extends State<AdminLogin> {
               PageButton(
                 text: 'LOG IN',
                 press: () async {
-                  dynamic result = await _auth.logIn();
+                  dynamic result = await _auth.logIn(userEmail, password);
                   result == null
                       ? print('login error')
                       : print('logged in, ' + result.toString());
