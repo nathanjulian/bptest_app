@@ -45,6 +45,11 @@ class _AdminLoginState extends State<AdminLogin> {
                       : print('logged in, ' + result.toString());
                 },
               ),
+              SizedBox(height: 20.0,),
+              PageButton(
+                text: 'LOG IN WITH GOOGLE',
+                press: () {},
+              )
             ],
           ),
         ),
