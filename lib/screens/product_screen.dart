@@ -1,4 +1,5 @@
 import 'package:bptest_app/components/quantity_buttons.dart';
+import 'package:bptest_app/firebase/auth_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 import 'package:bptest_app/components/page_button.dart';
@@ -9,6 +10,8 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
+
+  final AuthService _auth =AuthService();
   int count = 1;
 
   @override
@@ -34,9 +37,9 @@ class _ProductScreenState extends State<ProductScreen> {
             ),
             ListTile(
               title: Text('LOG OUT'),
-              onTap: () {
+              onTap: () async {
+                await _auth.logOut();
                 Navigator.pop(context);
-                Navigator.pushNamed(context, 'Login');
               },
             ),
           ],
