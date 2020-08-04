@@ -11,6 +11,11 @@ class Wrapper extends StatelessWidget {
     final user = Provider.of<User>(context);
 
 
-    return user != null ? ProductsScreen() : LoginScreen();
+    if(user == null) {
+      return LoginScreen();
+    }
+    else {
+      return ProductsScreen();
+    }
   }
 }

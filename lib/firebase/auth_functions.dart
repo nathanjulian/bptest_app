@@ -1,5 +1,7 @@
 import 'package:bptest_app/components/users.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:bptest_app/components/custom_web_view.dart';
 
 class AuthService {
 
@@ -62,4 +64,29 @@ class AuthService {
       return null;
     }
   }
+
+  String clientID = "3164319606969751";
+  String redirectURL =
+      "https://www.facebook.com/connect/login_success.html";
+
+  //facebook login
+  loginWithFacebook(BuildContext context) async{
+    String result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => CustomWebView(
+            selectedUrl:
+            'https://www.facebook.com/dialog/oauth?client_id=$clientID&redirect_uri=$redirectURL&response_type=token&scope=email,public_profile,',
+          ),
+          maintainState: true));
+
+        if (result != null) {
+      try {
+        final facebookAuthCred =
+        FacebookAuthProvider.getCredential(accessToken: result);
+        final user =
+        await _auth.signInWithCredential(facebookAuthCred);
+      } catch (e) {}
+    };}
+
 }

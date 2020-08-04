@@ -82,6 +82,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.pushNamed(context, 'Sign Up');
                   },
                   text: 'SIGN UP'),
+              PageButton(
+                text: 'LOG IN WITH FACEBOOK',
+                press: () async {
+                 await _auth.loginWithFacebook(context);
+                },
+              ),
+              SizedBox(height: 20.0),
               SizedBox(
                 height: 100.0,
               ),
