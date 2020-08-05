@@ -2,11 +2,15 @@ import 'package:bptest_app/components/users.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/components/custom_web_view.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService {
 
-  //create instance object
+  //create firebaseauth instance object
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  //create google log in instance object
+  final GoogleSignIn googleSignIn = GoogleSignIn();
 
 
   //create user obj
@@ -19,7 +23,7 @@ class AuthService {
     return _auth.onAuthStateChanged.map( _userFromFirebaseUser);
   }
 
-  //function to log in with username
+  //function to log in anon
   Future logInAnon() async {
     try{
       AuthResult result = await _auth.signInAnonymously();
@@ -87,6 +91,18 @@ class AuthService {
         final user =
         await _auth.signInWithCredential(facebookAuthCred);
       } catch (e) {}
-    };}
+    }
+  }
+
+  //google login
+  googleLogIn() async {
+    final GoogleSignInAccount googleUser = await googleSignIn.signIn();
+    final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+
+    final AuthCredential credential = GoogleAuthProvider.getCredential(idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
+    final FirebaseUser user = (await _auth.signInWithCredential(credential)).user;
+
+
+  }
 
 }
