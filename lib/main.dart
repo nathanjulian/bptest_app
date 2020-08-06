@@ -1,11 +1,13 @@
 import 'package:bptest_app/firebase/auth_functions.dart';
+import 'package:bptest_app/screens/eterna_review_screen.dart';
+import 'package:bptest_app/screens/eterna_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
 import 'screens/adminLogin_screen.dart';
 import 'screens/products_screen.dart';
-import 'screens/product_screen.dart';
-import 'screens/review_screen.dart';
+import 'screens/floaroma_screen.dart';
+import 'screens/floaroma_review_screen.dart';
 import 'screens/newReview_screen.dart';
 import 'screens/chat_screen.dart';
 import 'firebase/wrapper.dart';
@@ -34,8 +36,10 @@ class MyApp extends StatelessWidget {
           'Sign Up' : (context) => SignUpScreen(),
           'Admin Login' : (context) => AdminLogin(),
           'Products' : (context) => ProductsScreen(),
-          'Product' : (context) => ProductScreen(),
-          'Reviews' : (context) => ReviewScreen(),
+          'Floaroma' : (context) => FloaromaScreen(),
+          'Floaroma Reviews' : (context) => FloaromaReviewScreen(),
+          'Eterna' : (context) => EternaScreen(),
+          'Eterna Reviews' : (context) => EternaReviewScreen(),
           'New Review' : (context) => NewReviewScreen(),
           'Chat' : (context) => ChatScreen(),
         },

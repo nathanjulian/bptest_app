@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 import 'package:bptest_app/components/page_button.dart';
 
-class ProductScreen extends StatefulWidget {
+class EternaScreen extends StatefulWidget {
   @override
-  _ProductScreenState createState() => _ProductScreenState();
+  _EternaScreenState createState() => _EternaScreenState();
 }
 
-class _ProductScreenState extends State<ProductScreen> {
+class _EternaScreenState extends State<EternaScreen> {
 
   final AuthService _auth =AuthService();
   int count = 1;
@@ -54,7 +54,7 @@ class _ProductScreenState extends State<ProductScreen> {
           children: [
             Image.asset('assets/images/bouquet.jpg'),
             Text(
-              'FLOAROMA',
+              'ETERNA',
               style: kPageHeadingStyle,
             ),
             SizedBox(height: 10.0,),
@@ -117,7 +117,7 @@ class _ProductScreenState extends State<ProductScreen> {
             SizedBox(height: 20.0,),
             PageButton(
               press: () {
-                Navigator.pushNamed(context, 'Reviews');
+                Navigator.pushNamed(context, 'Eterna Reviews');
               },
               text: 'REVIEWS',
             ),
@@ -127,3 +127,4 @@ class _ProductScreenState extends State<ProductScreen> {
     );
   }
 }
+
