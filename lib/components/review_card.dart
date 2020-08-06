@@ -9,6 +9,8 @@ class ReviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Container(
       padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
@@ -25,7 +27,7 @@ class ReviewCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(icon: Icon(Icons.thumb_up), onPressed: (){}),
-              Text('6'),
+              Text(review.votes.toString()),
               IconButton(icon: Icon(Icons.thumb_down), onPressed: (){}),
             ],
           ),

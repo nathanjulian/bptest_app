@@ -1,6 +1,5 @@
 import 'package:bptest_app/components/review_class.dart';
 import 'package:bptest_app/firebase/auth_functions.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 import 'package:bptest_app/components/page_button.dart';
@@ -14,7 +13,6 @@ class FloaromaReviewScreen extends StatefulWidget {
 }
 
 class _FloaromaReviewScreenState extends State<FloaromaReviewScreen> {
-
   final AuthService _auth = AuthService();
 
   @override
@@ -58,37 +56,25 @@ class _FloaromaReviewScreenState extends State<FloaromaReviewScreen> {
           padding: EdgeInsets.symmetric(vertical: 20.0),
           child: Column(
             children: [
-              Text('REVIEWS', style: kPageHeadingStyle,),
-              SizedBox(height: 20.0,),
+              Text(
+                'REVIEWS',
+                style: kPageHeadingStyle,
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  PageButton(press: () {Navigator.pushNamed(context, 'New Review');}, text: 'ADD REVIEW'),
+                  PageButton(
+                      press: () {
+                        Navigator.pushNamed(context, 'New Review');
+                      },
+                      text: 'ADD REVIEW'),
                 ],
               ),
-              SizedBox(height: 10.0,),
-              Container(
-                padding: EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  color: kSecondaryColor,
-                    border: Border.all(color: Colors.black)
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('MrPeePee'),
-                    Text('Rating: 5/5'),
-                    Text('blah blah blah'),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(icon: Icon(Icons.thumb_up), onPressed: (){}),
-                        Text('6'),
-                        IconButton(icon: Icon(Icons.thumb_down), onPressed: (){}),
-                      ],
-                    ),
-                  ],
-                ),
+              SizedBox(
+                height: 10.0,
               ),
               ReviewList(),
             ],
