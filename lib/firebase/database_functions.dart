@@ -12,10 +12,10 @@ class DatabaseService {
   Future updateUserReview(
       String name, String product, String rating, String comments) async {
     return await reviewsCollection.document(uid).setData({
-      'name': name,
-      'product': product,
-      'rating': rating,
-      'comments': comments,
+      'Name': name,
+      'Product': product,
+      'Rating': rating,
+      'Comments': comments,
     });
   }
 
@@ -28,10 +28,10 @@ class DatabaseService {
   List<Review> _reviewListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
       return Review(
-          name: doc.data['name'] ?? '',
-          product: doc.data['product'] ?? '',
-          rating: doc.data['rating'] ?? '',
-          comments: doc.data['comments'] ?? '');
+          name: doc.data['Name'] ?? '',
+          product: doc.data['Product'] ?? '',
+          rating: doc.data['Rating'] ?? '',
+          comments: doc.data['Comments'] ?? '');
     }).toList();
   }
 }
