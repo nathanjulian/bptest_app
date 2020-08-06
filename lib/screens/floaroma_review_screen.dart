@@ -1,3 +1,4 @@
+import 'package:bptest_app/components/review_class.dart';
 import 'package:bptest_app/firebase/auth_functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,7 @@ import 'package:bptest_app/constants.dart';
 import 'package:bptest_app/components/page_button.dart';
 import 'package:bptest_app/firebase/database_functions.dart';
 import 'package:provider/provider.dart';
+import 'package:bptest_app/components/review_list.dart';
 
 class FloaromaReviewScreen extends StatefulWidget {
   @override
@@ -17,7 +19,7 @@ class _FloaromaReviewScreenState extends State<FloaromaReviewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot>.value(
+    return StreamProvider<List<Review>>.value(
       value: DatabaseService().reviews,
       child: Scaffold(
         drawer: Drawer(
@@ -88,6 +90,7 @@ class _FloaromaReviewScreenState extends State<FloaromaReviewScreen> {
                   ],
                 ),
               ),
+              ReviewList(),
             ],
           ),
         ),
