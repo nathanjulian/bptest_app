@@ -52,14 +52,14 @@ class ProductsScreen extends StatelessWidget {
             children: [
               ProductCard(
                   press: () {
-                    Navigator.pushNamed(context, 'Product');
+                    Navigator.pushNamed(context, 'Floaroma');
                   },
                   productName: 'Floaroma',
                   image: 'assets/images/bouquet.jpg',
                   price: 69.69),
               ProductCard(
                   press: () {
-                    Navigator.pushNamed(context, 'Product');
+                    Navigator.pushNamed(context, 'Eterna');
                   },
                   productName: 'Eterna',
                   image: 'assets/images/bouquet.jpg',
