@@ -1,6 +1,11 @@
+import 'dart:io';
+
 import 'package:bptest_app/components/users.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:bptest_app/components/review_class.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 
 class DatabaseService {
@@ -14,13 +19,14 @@ class DatabaseService {
 
 
   Future updateUserReview(
-      String name, String product, String rating, String comments, int votes) async {
+      String name, String product, String rating, String comments, int votes, String photos) async {
     return await reviewsCollection.document(uid).setData({
       'Name': name,
       'Product': product,
       'Rating': rating,
       'Comments': comments,
       'Votes' : votes,
+      'Photos' : photos,
     });
   }
 
@@ -43,7 +49,9 @@ class DatabaseService {
           product: doc.data['Product'] ?? '',
           rating: doc.data['Rating'] ?? '',
           comments: doc.data['Comments'] ?? '',
-          votes: doc.data['Votes'] ?? ',');
+          votes: doc.data['Votes'] ?? '',
+        photo: doc.data['Photos'] ?? '',
+      );
     }).toList();
   }
 
@@ -60,7 +68,12 @@ class DatabaseService {
         product: snapshot.data['Product'],
         rating: snapshot.data['Rating'],
         comments: snapshot.data['Comments'],
-        votes: snapshot.data['Votes'] );
+        votes: snapshot.data['Votes'],
+    photos : snapshot.data['Photos'],
+    );
   }
+
+
+
 
 }

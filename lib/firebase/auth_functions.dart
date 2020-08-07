@@ -15,8 +15,9 @@ class AuthService {
 
   //create user obj
   User _userFromFirebaseUser(FirebaseUser user) {
-    return user !=null ? User(userID: user.uid) : null;
+    return user !=null ? User(userID: user.uid, email: user.email) : null;
   }
+
 
   //user auth change stream
   Stream<User> get userLoginStatus {
@@ -104,5 +105,6 @@ class AuthService {
 
 
   }
+
 
 }
