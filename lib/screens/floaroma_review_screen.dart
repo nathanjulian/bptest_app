@@ -14,7 +14,6 @@ class FloaromaReviewScreen extends StatefulWidget {
 
 class _FloaromaReviewScreenState extends State<FloaromaReviewScreen> {
   final AuthService _auth = AuthService();
-
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<Review>>.value(
@@ -52,9 +51,10 @@ class _FloaromaReviewScreenState extends State<FloaromaReviewScreen> {
           title: Text('Butterflies & Petals'),
           backgroundColor: kSecondaryColor,
         ),
-        body: Container(
+        body: ListView(
           padding: EdgeInsets.symmetric(vertical: 20.0),
-          child: Column(
+          children: [
+            Column(
             children: [
               Text(
                 'REVIEWS',
@@ -79,6 +79,7 @@ class _FloaromaReviewScreenState extends State<FloaromaReviewScreen> {
               ReviewList(),
             ],
           ),
+          ]
         ),
       ),
     );

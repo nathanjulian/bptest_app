@@ -1,4 +1,5 @@
 import 'package:bptest_app/firebase/auth_functions.dart';
+import 'package:bptest_app/firebase/database_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 import 'package:bptest_app/components/page_button.dart';
@@ -11,11 +12,16 @@ class NewReviewScreen extends StatefulWidget {
 class _NewReviewScreenState extends State<NewReviewScreen> {
 
   final AuthService _auth = AuthService();
+  final DatabaseService _databaseService = DatabaseService();
   final _formKey = GlobalKey<FormState>();
 
   String rating = '';
   int ratingInt = 0;
   String comments = '';
+
+  String name = 'username';
+  String product = 'Floaroma';
+  int votes = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +110,13 @@ class _NewReviewScreenState extends State<NewReviewScreen> {
               ),
             ),
             PageButton(
-              press: () {_formKey.currentState.validate();},
+              press: () {
+                if(_formKey.currentState.validate()) {
+                  _databaseService.updateUserReview(
+                      name, product, rating, comments, votes);
+                  Navigator.pop(context);
+                }
+                },
               text: 'SUBMIT',
             ),
           ],

@@ -1,6 +1,4 @@
 import 'package:bptest_app/firebase/auth_functions.dart';
-import 'package:bptest_app/screens/eterna_review_screen.dart';
-import 'package:bptest_app/screens/eterna_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
@@ -38,8 +36,6 @@ class MyApp extends StatelessWidget {
           'Products' : (context) => ProductsScreen(),
           'Floaroma' : (context) => FloaromaScreen(),
           'Floaroma Reviews' : (context) => FloaromaReviewScreen(),
-          'Eterna' : (context) => EternaScreen(),
-          'Eterna Reviews' : (context) => EternaReviewScreen(),
           'New Review' : (context) => NewReviewScreen(),
           'Chat' : (context) => ChatScreen(),
         },
