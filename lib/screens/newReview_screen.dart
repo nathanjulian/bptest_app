@@ -1,5 +1,6 @@
 import 'dart:io';
-
+import 'dart:math';
+import 'package:bptest_app/components/users.dart';
 import 'package:bptest_app/firebase/auth_functions.dart';
 import 'package:bptest_app/firebase/database_functions.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -8,6 +9,7 @@ import 'package:bptest_app/constants.dart';
 import 'package:bptest_app/components/page_button.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
 
 class NewReviewScreen extends StatefulWidget {
   @override
@@ -24,12 +26,16 @@ class _NewReviewScreenState extends State<NewReviewScreen> {
   String comments = '';
   String photos = '';
 
-  String name = 'username';
+  String name = '';
   String product = 'Floaroma';
   int votes = 0;
 
+  final Random random = Random();
+
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
+    name = user.email;
     return Scaffold(
       drawer: Drawer(
         child: Column(
@@ -118,12 +124,16 @@ class _NewReviewScreenState extends State<NewReviewScreen> {
                             }),
                       ],
                     ),
-                    (photos != null)
-                        ? Image.network(photos)
-                        : Placeholder(
-                            fallbackHeight: 20.0,
-                            fallbackWidth: double.infinity,
-                          )
+                    Container(
+                      height: 50,
+                      width: 50,
+                      child: (photos != null)
+                          ? Image.network(photos)
+                          : Placeholder(
+                        fallbackHeight: 20.0,
+                        fallbackWidth: double.infinity,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -160,7 +170,7 @@ class _NewReviewScreenState extends State<NewReviewScreen> {
 
       if (image != null) {
         var snapshot =
-            await storage.ref().child('filename').putFile(file).onComplete;
+            await storage.ref().child(random.nextInt(999999).toString()).putFile(file).onComplete;
 
         var downloadURL = await snapshot.ref.getDownloadURL();
         setState(() {

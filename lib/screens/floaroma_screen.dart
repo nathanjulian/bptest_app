@@ -52,7 +52,7 @@ class _FloaromaScreenState extends State<FloaromaScreen> {
       body: Container(
         child: Column(
           children: [
-            Image.asset('assets/images/bouquet.jpg'),
+            Image.network('https://firebasestorage.googleapis.com/v0/b/bp-test-30275.appspot.com/o/download.jpg?alt=media&token=26d6cbc2-e89c-4e53-bbdf-4070bcb90239'),
             Text(
               'FLOAROMA',
               style: kPageHeadingStyle,
