@@ -12,6 +12,10 @@ class UserData {
   final String rating;
   final String comments;
   final int votes;
+  final String photos;
 
-  UserData({this.uid, this.name, this.product, this.rating, this.comments, this.votes});
+  UserData({this.uid, this.name, this.product, this.rating, this.comments, this.votes, this.photos});
+
+
 }
+

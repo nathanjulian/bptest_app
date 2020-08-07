@@ -35,6 +35,7 @@ class _ReviewCardState extends State<ReviewCard> {
           Text(widget.review.name),
           Text('Rating: ${widget.review.rating}/5'),
           Text(widget.review.comments),
+          Image.network(widget.review.photo),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -47,7 +48,7 @@ class _ReviewCardState extends State<ReviewCard> {
                   else if(downColor != Colors.black) {
                     upColor = Colors.green;
                     downColor = Colors.black;
-                    widget.review.votes ++;
+                    widget.review.votes = widget.review.votes + 2;
                   }
                   else{
                     upColor = Colors.black;
@@ -65,7 +66,7 @@ class _ReviewCardState extends State<ReviewCard> {
                   else if(upColor != Colors.black) {
                     upColor = Colors.black;
                     downColor = Colors.red;
-                    widget.review.votes --;
+                    widget.review.votes = widget.review.votes -2;
                   }
                   else{
                     downColor = Colors.black;
