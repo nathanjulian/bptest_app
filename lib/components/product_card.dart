@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 
@@ -25,12 +26,7 @@ class ProductCard extends StatelessWidget {
           children: [
             Container(
               margin: EdgeInsets.all(30),
-              width: 70,
-              height: 70,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(image), fit: BoxFit.cover),
-              ),
+              child: Image.network('https://firebasestorage.googleapis.com/v0/b/bp-test-30275.appspot.com/o/download.jpg?alt=media&token=26d6cbc2-e89c-4e53-bbdf-4070bcb90239'),
             ),
             Text(productName, style: kCollectionCardTextStyle),
             Text('\$' + price.toStringAsFixed(2),

@@ -54,31 +54,27 @@ class _FloaromaReviewScreenState extends State<FloaromaReviewScreen> {
         body: ListView(
           padding: EdgeInsets.symmetric(vertical: 20.0),
           children: [
-            Column(
-            children: [
-              Text(
-                'REVIEWS',
-                style: kPageHeadingStyle,
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  PageButton(
-                      press: () {
-                        Navigator.pushNamed(context, 'New Review');
-                      },
-                      text: 'ADD REVIEW'),
-                ],
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              ReviewList(),
-            ],
-          ),
+            Text(
+              'REVIEWS',
+              style: kPageHeadingStyle,
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                PageButton(
+                    press: () {
+                      Navigator.pushNamed(context, 'New Review');
+                    },
+                    text: 'ADD REVIEW'),
+              ],
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            ReviewList(),
           ]
         ),
       ),
