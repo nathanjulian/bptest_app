@@ -3,7 +3,9 @@ class Review {
   final String product;
   final String rating;
   final String comments;
-  final int votes;
+  int votes;
 
   Review({this.name, this.product, this.rating, this.comments, this.votes});
+
+
 }

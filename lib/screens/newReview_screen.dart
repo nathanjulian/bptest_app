@@ -1,4 +1,5 @@
 import 'package:bptest_app/firebase/auth_functions.dart';
+import 'package:bptest_app/firebase/database_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 import 'package:bptest_app/components/page_button.dart';
@@ -11,6 +12,16 @@ class NewReviewScreen extends StatefulWidget {
 class _NewReviewScreenState extends State<NewReviewScreen> {
 
   final AuthService _auth = AuthService();
+  final DatabaseService _databaseService = DatabaseService();
+  final _formKey = GlobalKey<FormState>();
+
+  String rating = '';
+  int ratingInt = 0;
+  String comments = '';
+
+  String name = 'username';
+  String product = 'Floaroma';
+  int votes = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -52,19 +63,41 @@ class _NewReviewScreenState extends State<NewReviewScreen> {
         child: Column(
 
           children: [
-            Text('REVIEWS', style: kPageHeadingStyle,),
+            Text('NEW REVIEW', style: kPageHeadingStyle,),
             Container(
               padding: EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                   color: kSecondaryColor,
                   border: Border.all(color: Colors.black)
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Product under review: '),
-                  Text('Rating out of 5: '),
-                  Text('Additional comments:'),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextFormField(
+                      validator: (val) =>
+                      int.parse(val)>5 || val.isEmpty ? 'Give a rating between 0-5' : null,
+                      decoration: InputDecoration(
+                        focusColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: 'Rating (out of 5)',
+                      ),
+                      onChanged: (val) {
+                        setState(() => rating = val);
+                      },
+                    ),
+                    SizedBox(height: 10.0,),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        border: OutlineInputBorder(),
+                        labelText: 'Additional comments',
+                      ),
+                      onChanged: (val) {
+                        setState(() => comments = val);
+                      },
+                    ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -73,10 +106,17 @@ class _NewReviewScreenState extends State<NewReviewScreen> {
                     ],
                   ),
                 ],
+                ),
               ),
             ),
             PageButton(
-              press: () {},
+              press: () {
+                if(_formKey.currentState.validate()) {
+                  _databaseService.updateUserReview(
+                      name, product, rating, comments, votes);
+                  Navigator.pop(context);
+                }
+                },
               text: 'SUBMIT',
             ),
           ],

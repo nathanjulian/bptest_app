@@ -57,13 +57,6 @@ class ProductsScreen extends StatelessWidget {
                   productName: 'Floaroma',
                   image: 'assets/images/bouquet.jpg',
                   price: 69.69),
-              ProductCard(
-                  press: () {
-                    Navigator.pushNamed(context, 'Eterna');
-                  },
-                  productName: 'Eterna',
-                  image: 'assets/images/bouquet.jpg',
-                  price: 69.69),
             ],
           ),
       ),
