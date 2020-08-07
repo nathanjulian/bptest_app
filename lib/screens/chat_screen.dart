@@ -1,4 +1,5 @@
 import 'package:bptest_app/firebase/auth_functions.dart';
+import 'package:bptest_app/firebase/database_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 
@@ -9,6 +10,8 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final AuthService _auth = AuthService();
+  final DatabaseService _dbService = DatabaseService();
+  final _textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +64,11 @@ class _ChatScreenState extends State<ChatScreen> {
                     ),
                   ),
                 ),
-                IconButton(icon: Icon(Icons.send), onPressed: () {}),
+                IconButton(icon: Icon(Icons.send), onPressed: () {
+                  _dbService.chatMessagesCollection.add({
+
+                  });
+                }),
               ],
             )
           ],
