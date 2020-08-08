@@ -1,9 +1,9 @@
 import 'package:bptest_app/components/review_class.dart';
-import 'package:bptest_app/firebase/auth_functions.dart';
+import 'package:bptest_app/firebaseStuff//auth_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 import 'package:bptest_app/components/page_button.dart';
-import 'package:bptest_app/firebase/database_functions.dart';
+import 'package:bptest_app/firebaseStuff//database_functions.dart';
 import 'package:provider/provider.dart';
 import 'package:bptest_app/components/review_list.dart';
 

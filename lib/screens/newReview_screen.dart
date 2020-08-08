@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'dart:math';
 import 'package:bptest_app/components/users.dart';
-import 'package:bptest_app/firebase/auth_functions.dart';
-import 'package:bptest_app/firebase/database_functions.dart';
+import 'package:bptest_app/firebaseStuff//auth_functions.dart';
+import 'package:bptest_app/firebaseStuff//database_functions.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';

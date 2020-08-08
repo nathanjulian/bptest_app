@@ -1,4 +1,4 @@
-import 'package:bptest_app/firebase/auth_functions.dart';
+import 'package:bptest_app/firebaseStuff//auth_functions.dart';
 import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
@@ -8,7 +8,7 @@ import 'screens/floaroma_screen.dart';
 import 'screens/floaroma_review_screen.dart';
 import 'screens/newReview_screen.dart';
 import 'screens/chat_screen.dart';
-import 'firebase/wrapper.dart';
+import 'firebaseStuff//wrapper.dart';
 import 'package:provider/provider.dart';
 import 'components/users.dart';
 import 'constants.dart';
