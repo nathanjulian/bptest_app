@@ -1,4 +1,4 @@
-import 'package:bptest_app/firebase/auth_functions.dart';
+import 'package:bptest_app/firebaseStuff//auth_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:bptest_app/components/page_button.dart';
 
