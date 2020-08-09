@@ -13,7 +13,7 @@ class MessageStream extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
     return StreamBuilder<QuerySnapshot>(
-      stream: _dbService.chatMessagesCollection.orderBy('Time').snapshots(),
+      stream: _dbService.chatMessagesCollection.orderBy('Time', descending: true).snapshots(),
         builder: (context, snapshot) {
         final messages = snapshot.data.documents;
 
