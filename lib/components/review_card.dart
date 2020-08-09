@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:bptest_app/constants.dart';
 
 class ReviewCard extends StatefulWidget {
+
   final Review review;
   ReviewCard({this.review});
 
@@ -12,10 +13,12 @@ class ReviewCard extends StatefulWidget {
 }
 
 class _ReviewCardState extends State<ReviewCard> {
-  final DatabaseService _databaseService = DatabaseService();
+
+  DatabaseService _databaseService = DatabaseService();
 
   Color upColor = Colors.black;
   Color downColor = Colors.black;
+  int votes = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +56,8 @@ class _ReviewCardState extends State<ReviewCard> {
                         upColor = Colors.black;
                         widget.review.votes--;
                       }
+                      votes = widget.review.votes;
+                      _databaseService.updateReviewVotes(votes);
                     });
                   }),
               Text(widget.review.votes.toString()),
@@ -76,9 +81,11 @@ class _ReviewCardState extends State<ReviewCard> {
                         widget.review.votes++;
                       }
                     });
+                    votes = widget.review.votes;
+                    print(votes);
                   }),
             ],
-          ),
+          )
         ],
       ),
     );

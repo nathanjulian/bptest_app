@@ -1,6 +1,7 @@
 import 'package:bptest_app/components/users.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:bptest_app/components/review_class.dart';
+import 'package:provider/provider.dart';
 
 class DatabaseService {
   final String uid;
@@ -22,8 +23,10 @@ class DatabaseService {
     });
   }
 
+
+
   Future updateReviewVotes(int votes) async {
-    return await reviewsCollection.document(uid).setData({
+    return await reviewsCollection.document(uid).updateData({
       'Votes': votes,
     });
   }

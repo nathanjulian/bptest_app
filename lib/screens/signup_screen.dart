@@ -10,7 +10,6 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
 
   String email = '';
-  String username = '';
   String password = '';
   String confirmPassword = '';
   String error = '';
@@ -35,17 +34,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 onChanged: (val) {
                   setState(() => email = val);
-                },
-              ),
-              SizedBox(height: 20.0),
-              TextFormField(
-                validator: (val) => val.isEmpty ? 'Username already taken' : null ,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Username',
-                ),
-                onChanged: (val) {
-                  setState(() => username = val);
                 },
               ),
               SizedBox(height: 20.0),
@@ -98,6 +86,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           }
                         );
                       });
+                    }
+                    else {
+                      Navigator.pop(context);
                     }
                   }
                 },

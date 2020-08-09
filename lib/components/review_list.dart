@@ -10,11 +10,11 @@ class ReviewList extends StatefulWidget {
 }
 
 class _ReviewListState extends State<ReviewList> {
+
   @override
   Widget build(BuildContext context) {
 
     final reviews = Provider.of<List<Review>>(context);
-    print(reviews.length);
 
     return ListView.builder(
       shrinkWrap: true,

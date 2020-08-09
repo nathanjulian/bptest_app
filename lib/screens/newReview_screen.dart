@@ -143,7 +143,7 @@ class _NewReviewScreenState extends State<NewReviewScreen> {
                 if (_formKey.currentState.validate()) {
                   _databaseService.updateUserReview(
                       name, product, rating, comments, votes,photos);
-                  Navigator.pop(context);
+                Navigator.pop(context);
                 }
               },
               text: 'SUBMIT',
